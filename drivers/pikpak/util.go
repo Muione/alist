@@ -18,6 +18,12 @@ func (d *PikPak) request(url string, method string, callback base.ReqCallback, r
 		return nil, err
 	}
 	req.SetAuthScheme(token.TokenType).SetAuthToken(token.AccessToken)
+	req.Header.Set("Referer", "https://mypikpak.com/")
+	req.Header.Set("Sec-Ch-Ua", "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\", \"Google Chrome\";v=\"126\"")
+	req.Header.Set("Sec-Ch-Ua-Mobile", "?0")
+	req.Header.Set("Sec-Ch-Ua-Platform", "Windows")
+	req.Header.Set("Referer", "https://mypikpak.com/")
+	req.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")
 
 	if callback != nil {
 		callback(req)
